@@ -7,5 +7,6 @@ models
 lenet.index
 lenet.meta
 lenet.data-00000-of-00001
-examples
-dump
+train.p
+test.p
+valid.p
