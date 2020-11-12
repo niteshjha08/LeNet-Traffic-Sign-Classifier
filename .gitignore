@@ -4,3 +4,8 @@ data
 models
 *.swp
 *.p
+lenet.index
+lenet.meta
+lenet.data-00000-of-00001
+examples
+dump
