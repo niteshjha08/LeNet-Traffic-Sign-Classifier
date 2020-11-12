@@ -1,10 +1,6 @@
 # **Traffic Sign Recognition** 
 
-## Writeup
-
 ---
-
-** Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
 * Load the data set (see below for links to the project data set)
@@ -12,14 +8,11 @@ The goals / steps of this project are the following:
 * Design, train and test a model architecture
 * Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
-
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+* Summarize the results with a written report  
 
 ---
 
-Here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+Code used for this project is in this [Jupyter notebook](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ### Data Set Summary & Exploration
 
@@ -39,6 +32,7 @@ signs data set:
 Here is an exploratory visualization of the data set. It is a bar chart showing how the data labels are distributed in the training set.
 
 ![distribution](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/distribution.PNG)
+
 It is seen that speed limit labels 30,50,60,70,100,120 km/h have high occurences, whereas labels such as 'Road Narrows on right', 'Double curve' etc. have very few occurences. Thus we have a class imbalance and 
 
 ### Design and Test a Model Architecture
@@ -51,7 +45,6 @@ Here is an example of a traffic sign image before and after this conversion.
 
 ![original_img](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/original_img.PNG)   ![normalized_img](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/normalized_img.PNG)
 
-Original image			Converted image
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
@@ -102,9 +95,14 @@ I arrived at the upper and lower bound of batch size to be about 100-200, i.e. a
 I tried combinations of 128,200 for batch sizes and 0.0005,0.001 and 0.008 learning rate and the results were such:
 
 ![valid_acc_agg](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/aggregated_valid_acc1.PNG)
+
+
 We can see that the smaller batch gave more stable results, and 0.001 learning rate caused some erratic changes in accuracy.
 Thus, I then tried it at learning rate of 0.0008 for both batch sizes.
+
+
 ![valid_acc_agg](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/aggregated_valid_acc2.PNG)
+
 
 Although the accuracy in this run was lower for the 128 batch size, it was generally higher in the previous runs.
 
@@ -227,5 +225,7 @@ For the eight image, the model is sure that this is a Priority sign, and the ima
 | 0					    | Right-of-way at the next intersection			|
 
 Here is a visualization of the same result:
+
+
 ![barplot1](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/barplots1.PNG)  ![barplot2](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/barplots2.PNG)
 
