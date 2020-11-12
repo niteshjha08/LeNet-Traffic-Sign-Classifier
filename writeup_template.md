@@ -38,7 +38,7 @@ signs data set:
 
 Here is an exploratory visualization of the data set. It is a bar chart showing how the data labels are distributed in the training set.
 
-![distribution]()
+![distribution](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/distribution.PNG)
 It is seen that speed limit labels 30,50,60,70,100,120 km/h have high occurences, whereas labels such as 'Road Narrows on right', 'Double curve' etc. have very few occurences. Thus we have a class imbalance and 
 
 ### Design and Test a Model Architecture
@@ -49,7 +49,7 @@ The images were converted using `(img-128)/128` to make them lie in the range [-
 
 Here is an example of a traffic sign image before and after this conversion.
 
-![original_img]()   ![normalized_img]()
+![original_img](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/original_img.PNG)   ![normalized_img](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/normalized_img.PNG)
 
 Original image			Converted image
 
@@ -83,7 +83,10 @@ As the accuracy plateaus and remains the same at about 30 iterations. The traini
 I used the Adam Optimizer as it is faster than SGD and is commonly used for deep learning models.
 
 Here is the learning curve of training data:
-![training_acc]()
+![training_acc](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/training_acc.PNG)
+
+Here is the learning curve of validation data:
+![training_acc](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/valid_acc.PNG)
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
@@ -98,7 +101,12 @@ As the number of adjustable variables are large, I decided to keep this architec
 I arrived at the upper and lower bound of batch size to be about 100-200, i.e. accuracy would be highest between these values. For the learning rate, this came to be around 0.0005-0.001.
 I tried combinations of 128,200 for batch sizes and 0.0005,0.001 and 0.008 learning rate and the results were such:
 
-**Insert all images here for valid_acc**
+![valid_acc_agg](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/aggregated_valid_acc1.PNG)
+We can see that the smaller batch gave more stable results, and 0.001 learning rate caused some erratic changes in accuracy.
+Thus, I then tried it at learning rate of 0.0008 for both batch sizes.
+![valid_acc_agg](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/aggregated_valid_acc2.PNG)
+
+Although the accuracy in this run was lower for the 128 batch size, it was generally higher in the previous runs.
 
 From these results, the final hyperparameters were chosen as:
 * Fully connected layer nodes: 300-120-43
@@ -109,19 +117,17 @@ As we don't want to overfit, dropout was applied on the final fully connected la
 
 ### Test a Model on New Images
 
-#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. I chose eight  traffic signs found on the web
 
 Here are eight German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![new_images](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/new_images.PNG)
 
-The image of Speed Limit (100km/h) was difficult to classify because it was similar to the Speed Limit (120km/h) after normalizing. It was hard to differentiate the two even without normalizing, as evident from the below image.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
-![Insert prediction results]()
+![new_images_result1](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/new_images_result1.PNG)  ![new_images_result2](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/new_images_result2.PNG)
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -221,5 +227,5 @@ For the eight image, the model is sure that this is a Priority sign, and the ima
 | 0					    | Right-of-way at the next intersection			|
 
 Here is a visualization of the same result:
-![barplot1]()  ![barplot2]()
+![barplot1](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/barplots1.PNG)  ![barplot2](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/barplots2.PNG)
 
