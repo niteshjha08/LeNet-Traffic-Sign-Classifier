@@ -76,9 +76,13 @@ As the accuracy plateaus and remains the same at about 30 iterations. The traini
 I used the Adam Optimizer as it is faster than SGD and is commonly used for deep learning models.
 
 Here is the learning curve of training data:
+
+
 ![training_acc](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/training_acc.PNG)
 
 Here is the learning curve of validation data:
+
+
 ![training_acc](https://github.com/niteshjha08/LeNet-Traffic-Sign-Classifier/blob/master/examples/valid_acc.PNG)
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
